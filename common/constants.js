@@ -4,6 +4,10 @@ export const DATE_FORMAT_MM_DD_YYYY = '1/28/2000';
 export const DATE_FORMAT_DD_MM_YYYY = '28/1/2000';
 export const DATE_FORMAT_MON_DD = 'JAN 28';
 
+export const dataType = "cbor";
+export const dataFile = "appointments.cbor";
+export const millisecondsPerMinute = 1000 * 60;
+
 // Note: don't reorder these as settings are saved based on array index.
 // If this is needed you should migrate or at least rotate the settings key.
 // See https://dev.fitbit.com/build/reference/settings-api/#select

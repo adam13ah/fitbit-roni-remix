@@ -3,12 +3,37 @@ import Clock from "./inc/clock";
 import Messaging from "./inc/messaging";
 import UI from "./inc/ui";
 import FileStore from "./inc/fileStore";
+import * as appointment from "./inc/appointment";
 
-import analytics from "fitbit-google-analytics/app";
+import { fromEpochSec, timeUntil, trimString } from "../common/utils";
 
-analytics.configure({
-  tracking_id: "UA-26651291-17"
+const time = document.getElementById("time");
+const title = document.getElementById("title");
+const details = document.getElementById("details");
+
+clock.initialize("minutes", data => {
+  // Clock ticked, update UI
+  time.text = data.time;
+  renderAppointment();
 });
+
+appointment.initialize(() => {
+  // We have fresh calendar data
+  clock.tick();
+});
+
+function renderAppointment() {
+  let event = appointment.next();
+  if (event) {
+    title.text = event.title.substr(0, 20);
+    details.text = `${timeUntil(fromEpochSec(event.startDate))} ${
+      event.location ? `@ ${event.location}` : ""
+    }`;
+  } else {
+    title.text = "No appointments";
+    details.text = "";
+  }
+}
 
 UI.instance.restore();
 
