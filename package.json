@@ -1,36 +1,40 @@
 {
-  "version": "1.6.0",
+  "name": "fitbit-roni-remix",
+  "version": "0.1.0",
+  "private": true,
+  "license": "UNLICENSED",
   "devDependencies": {
-    "@fitbit/sdk": "^4.0.2",
+    "@fitbit/sdk": "~4.1.0",
     "@fitbit/sdk-cli": "^1.7.1"
   },
   "fitbit": {
-    "appUUID": "19a118e0-3070-4f00-b76b-345d02853c70",
+    "appUUID": "9c7860e5-fc22-450b-8bff-a030412775a7",
     "appType": "clockface",
-    "appDisplayName": "Roni",
+    "appDisplayName": "Roni Remix",
     "iconFile": "resources/icon.png",
-    "wipeColor": "",
+    "wipeColor": "#ffffff",
     "requestedPermissions": [
       "access_activity",
       "access_heart_rate",
-      "access_internet"
+      "access_internet",
+      "access_calendar",
+      "run_background"
     ],
     "buildTargets": [
+      "higgs",
       "meson",
       "gemini",
       "mira"
     ],
     "i18n": {
       "en": {
-        "name": "Roni"
+        "name": "Roni Remix"
       }
-    }
+    },
+    "defaultLanguage": "en-US"
   },
   "scripts": {
     "build": "fitbit-build",
-    "cli": "npx fitbit"
-  },
-  "dependencies": {
-    "fitbit-google-analytics": "^1.2.0"
+    "debug": "npx fitbit"
   }
 }
