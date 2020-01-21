@@ -1,8 +1,8 @@
 import { inbox } from "file-transfer";
 import { readFileSync } from "fs";
 
-import { dataFile, dataType } from "../common/constants";
-import { toEpochSec } from "../common/utils";
+import { dataFile, dataType } from "../../common/constants";
+import { toEpochSec } from "../../common/utils";
 
 let data;
 let handleCalendarUpdatedCallback;

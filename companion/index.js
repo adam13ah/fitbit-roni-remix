@@ -1,6 +1,14 @@
 import * as messaging from "messaging";
 import { settingsStorage } from "settings";
 
+import calendars from "calendars";
+import * as cbor from "cbor";
+import { me as companion } from "companion";
+import { outbox } from "file-transfer";
+
+import { toEpochSec } from "../common/utils";
+import { dataFile, millisecondsPerMinute } from "../common/constants";
+
 // Message socket opens
 messaging.peerSocket.onopen = () => {
   restoreSettings();
@@ -40,14 +48,6 @@ function sendVal(data) {
     messaging.peerSocket.send(data);
   }
 }
-
-import calendars from "calendars";
-import * as cbor from "cbor";
-import { me as companion } from "companion";
-import { outbox } from "file-transfer";
-
-import { toEpochSec } from "../common/utils";
-import { dataFile, millisecondsPerMinute } from "../common/constants";
 
 companion.wakeInterval = 15 * millisecondsPerMinute;
 companion.addEventListener("wakeinterval", refreshData);

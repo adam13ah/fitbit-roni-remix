@@ -1,6 +1,6 @@
 import * as fs from "fs";
 
-const FILENAME = "roni.txt";
+const FILENAME = "CalendaRoni.txt";
 const FILETYPE = "json";
 
 export const KEY_COLOR = "color";

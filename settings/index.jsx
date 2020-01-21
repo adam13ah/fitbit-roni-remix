@@ -44,12 +44,11 @@ function mySettings(props) {
         </Text>
       </Section>
       <Section>
-        <Link source="https://chrisperko.net/support-me">Support Me</Link>
-      </Section>
-      <Section>
-        <Text>Contributors:</Text>
+        <Text>Original Roni Design by:</Text>
         <Link source="https://www.chrisperko.net">Chris Perko</Link>
         <Link source="https://www.eliotlash.com/">Eliot Lash</Link>
+        <Text>Calendar glue sticked in by:</Text>
+        <Link source="https://github.com/adam13ah/">Adam Hagen</Link>
       </Section>
     </Page>
   );

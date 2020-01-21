@@ -1,16 +1,17 @@
 {
-  "name": "fitbit-roni-remix",
   "version": "0.1.0",
   "private": true,
   "license": "UNLICENSED",
   "devDependencies": {
     "@fitbit/sdk": "~4.1.0",
-    "@fitbit/sdk-cli": "^1.7.1"
+    "@fitbit/sdk-cli": "^1.7.1",
+    "@types/cbor": "^5.0.0",
+    "fitbit-sdk-types": "^4.3.2"
   },
   "fitbit": {
     "appUUID": "9c7860e5-fc22-450b-8bff-a030412775a7",
     "appType": "clockface",
-    "appDisplayName": "Roni Remix",
+    "appDisplayName": "CalendaRoni",
     "iconFile": "resources/icon.png",
     "wipeColor": "#ffffff",
     "requestedPermissions": [
@@ -21,14 +22,13 @@
       "run_background"
     ],
     "buildTargets": [
-      "higgs",
       "meson",
       "gemini",
       "mira"
     ],
     "i18n": {
       "en": {
-        "name": "Roni Remix"
+        "name": "CalendaRoni"
       }
     },
     "defaultLanguage": "en-US"
@@ -36,5 +36,8 @@
   "scripts": {
     "build": "fitbit-build",
     "debug": "npx fitbit"
+  },
+  "dependencies": {
+    "fp-ts": "^2.2.0"
   }
 }

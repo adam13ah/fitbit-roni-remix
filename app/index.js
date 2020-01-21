@@ -3,28 +3,33 @@ import Clock from "./inc/clock";
 import Messaging from "./inc/messaging";
 import UI from "./inc/ui";
 import FileStore from "./inc/fileStore";
-import * as appointment from "./inc/appointment";
 
-import { fromEpochSec, timeUntil, trimString } from "../common/utils";
+import document from "document";
+
+import * as appointment from "./inc/appointment";
+import * as clock from "./inc/clock";
+import { fromEpochSec, timeUntil } from "../common/utils";
 
 const time = document.getElementById("time");
 const title = document.getElementById("title");
+const calendar_img = document.getElementById("calendar_img");
 const details = document.getElementById("details");
 
-clock.initialize("minutes", data => {
+//clock.initialize("minutes", data => {
   // Clock ticked, update UI
-  time.text = data.time;
-  renderAppointment();
-});
+//  time.text = data.time;
+//  renderAppointment();
+//});
 
 appointment.initialize(() => {
   // We have fresh calendar data
   clock.tick();
+  renderAppointment();
 });
 
 function renderAppointment() {
   let event = appointment.next();
-  if (event) {
+    if (event) {
     title.text = event.title.substr(0, 20);
     details.text = `${timeUntil(fromEpochSec(event.startDate))} ${
       event.location ? `@ ${event.location}` : ""
@@ -33,7 +38,7 @@ function renderAppointment() {
     title.text = "No appointments";
     details.text = "";
   }
-}
+};
 
 UI.instance.restore();
 

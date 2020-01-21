@@ -44,19 +44,21 @@ image {
   text-anchor: middle;
 }
 
-#title {
+#time {
   x: 50%;
-  y: $+20;
-  font-family: System-Bold;
+  y: 25%;
+  font-size: 45;
+}
+
+#title {
+  font-family: System-Regular;
+  text-anchor: middle;
 }
 
 #details {
   font-size: 28;
-  font-family: System-Regular;
+  font-family: System-Light;
   font-weight: regular;
   text-length: 128;
-  text-anchor: middle;
   fill: white;
-  x: 0;
-  y: $-15;
 }
