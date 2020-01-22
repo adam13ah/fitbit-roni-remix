@@ -3,6 +3,7 @@ import Clock from "./inc/clock";
 import Messaging from "./inc/messaging";
 import UI from "./inc/ui";
 import FileStore from "./inc/fileStore";
+import { display } from "display";
 
 import document from "document";
 
@@ -20,6 +21,16 @@ const details = document.getElementById("details");
 //  time.text = data.time;
 //  renderAppointment();
 //});
+
+display.addEventListener("change", () => {
+  // Automatically stop all sensors when the screen is off to conserve battery
+  display.on ? sensors.map(sensor => sensor.start()) : sensors.map(sensor => sensor.stop());
+  if (display.on == true){
+    Messaging.run();
+    updateActivity();
+    renderAppointment();
+  }
+});
 
 appointment.initialize(() => {
   // We have fresh calendar data
